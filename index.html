@@ -7,25 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2017/03/16/21/18/logo-2150297_640.png"
         type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
     <title>repaso strings</title>
 </head>
 
 <body>
-<button onclick="getdatabase()">Ver lista de usuarios</button>
-<button onclick="deleteUser()">Eliminar usuario</button>
-<button onclick="updateUser()">Editar usuario</button>
+    <div class="container bg bg-dark p-5">
+        <h2 class="text-light">Escribe tu tweet</h2>
+        <form action="">
+            <textarea  id="tweet" rows="5" class="form-control"></textarea>
+            <button class="btn btn-primary my-3 d-block ms-auto" onclick="publicar(event)"> Enviar</button>
+            </form>
+            <div class="contenedor-tweet"></div>
+    </div>
+    
+    <br><br><br><br><br><br><br><br>
+    <button onclick="getdatabase()">Ver lista de usuarios</button>
+    <button onclick="deleteUser()">Eliminar usuario</button>
+    <button onclick="updateUser()">Editar usuario</button>
 
-<hr>
-<br><br>
+    <hr>
+    <br><br>
 
-<h2>Carrito de compras</h2>
-<button onclick="agregarProducto()">Agregar producto</button>
-<button onclick="mostrarCarrito()">Mostrar carrito</button>
-<button onclick="buscarUnProducto()">Buscar un producto</button>
-<button onclick="buscarCoincidencias()">Coincidencias</button>
-<button>Eliminar producto del carrito</button>
+    <h2 id="h2-paraCambiar">titulo del dom</h2>
+    <button onclick="cambiarTexto()">Click para cambiar</button>
+    <hr> <br><br><br>
 
-<script src="./poo.js"></script>
+    <div id="probando-tema" class="light"></div>
+    <button onclick="cambiarTema()">Click para cambiar el tema</button>
+
+    <div class="nuevo-elemento"></div>
+    <button onclick="agergarElemento()">Agregar elemento </button>
+
+    <h2>Carrito de compras</h2>
+    <button onclick="agregarProducto()">Agregar producto</button>
+    <button onclick="mostrarCarrito()">Mostrar carrito</button>
+    <button onclick="buscarUnProducto()">Buscar un producto</button>
+    <button onclick="buscarCoincidencias()">Coincidencias</button>
+    <button>Eliminar producto del carrito</button>
+
+    <script src="./practicaDom&Bom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

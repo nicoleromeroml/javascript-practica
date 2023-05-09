@@ -1,0 +1,23 @@
+.light{
+    background-color: aquamarine;
+    height: 300px;
+    color: black;
+}
+
+.dark{
+    background-color: black;
+    height: 300px;
+    color: white;
+}
+
+.cuadrado{
+    height: 150px;
+    width: 150px;
+    background-color: brown;
+    border: solid 1px black;
+}
+.nuevo-elemento{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
