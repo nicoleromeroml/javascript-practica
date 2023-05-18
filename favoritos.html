@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>favs</title>
+</head>
+
+<body>
+
+    <script>
+        const favsFromLS = JSON.parse(localStorage.getItem('favs'))
+        favsFromLS.forEach(fav => {
+            const favElement = document.createElement('div')
+            favElement.innerHTML = `
+            <h3>${fav.name}</h3>
+            <p>${fav.description}</p>
+            <p>${fav.price}</p>
+            <img src=${fav.image}>
+            `
+            document.querySelector('body').appendChild(favElement);
+
+        });
+    </script>
+</body>
+
+</html>

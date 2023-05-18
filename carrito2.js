@@ -14,7 +14,25 @@ let products = [
     new Product('Motorola g24', 70000, 'MotG24', 'Telefono motorola g24 camara 4k 64gb', 'https://armoto.vtexassets.com/arquivos/ids/162644-800-auto?v=638097446537170000&width=800&height=auto&aspect=true'),
     new Product('Motorola g25', 70000, 'MotG255', 'Telefono motorola g25 camara 4k 64gb', 'https://armoto.vtexassets.com/arquivos/ids/162644-800-auto?v=638097446537170000&width=800&height=auto&aspect=true')
 ]
-let carrito = [];
+
+localStorage.setItem('products', JSON.stringify(products))
+
+
+const cartFromLS = JSON.parse(localStorage.getItem('carrito'))
+const favsFromLS = JSON.parse(localStorage.getItem('favs'));
+let carrito;
+let favs;
+if(cartFromLS){
+  carrito = JSON.parse(localStorage.getItem('carrito'))
+}else{
+  carrito = []
+}
+if(favsFromLS){
+    favs= JSON.parse(localStorage.getItem('favs'))
+}else{
+    favs = []
+}
+// let carrito = [];
 
 products.forEach(
     product => {
@@ -27,10 +45,15 @@ products.forEach(
         newProductCard.innerHTML = `
         <img src=${product.image} class="card-img-top" alt=${product.name}>
         <div class="card-body">
-          <h5 class="card-title">${product.name}</h5>
+          <h5 class="card-title">
+          <a href="http://127.0.0.1:5501/detalle.html#${product.productId}"
+           </a>${product.name} </h5>
           <p class="card-text">${product.description}</p>
             <p class="card-text"> $ ${product.price}</p>
-          <a href="#" class="btn btn-primary" onclick="agregarCarrito(${product.productId})">Agregar al carrito</a>
+            <div class="row">
+          <button href="#" class="btn btn-primary" onclick="agregarCarrito(${product.productId})">Agregar al carrito</button>
+          <button href="#" class="btn btn-danger my-1" onclick="agregarFav(${product.productId})">🤍</button>
+          </div>
         </div>
         `
         //Buscamos al padre
@@ -45,6 +68,7 @@ function agregarCarrito (productId) {
    let product =  products.find( product => product.productId == productId.id)
     console.log(product)
     carrito.push(product)
+      localStorage.setItem('carrito', JSON.stringify(carrito))
    //Creamos el elemento
    const newProductCard = document.createElement('div')
    newProductCard.id = product.productId
@@ -66,7 +90,7 @@ const padreContainer = document.querySelector('#cart-body');
 
 }
 
-function getCart  () {
+function getCart() {
     carrito.forEach(
         product => {
             //Creamos el elemento
@@ -90,3 +114,11 @@ function getCart  () {
         }
     )
 }
+
+
+function agregarFav(productId) {
+  let productToFavs = products.find( product => product.productId == productId.id)
+  favs.push(productToFavs)
+  localStorage.setItem('favs', JSON.stringify(favs))
+  }
+getCart();
